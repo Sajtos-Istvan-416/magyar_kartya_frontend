@@ -1,0 +1,770 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial Rounded MT", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.app {
+  min-height: 100vh;
+  background: #FF8E8E;
+  position: relative;
+}
+
+/* KÖZÉPRE IGAZÍTOTT FŐ RÉSZ */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 20px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 150px;
+}
+
+.form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  gap: 20px;
+}
+
+.form input,
+.form select {
+  width: 350px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  border: none;
+}
+
+.form select {
+  background: #ff5c5c;
+  color: white;
+  font-weight: bold;
+}
+
+.btn1 {
+  margin-top: 20px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: none;
+  background: #ff5c5c;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+}
+
+/* JÁTÉKOK */
+.games {
+  text-align: center;
+  max-width: 500px;
+}
+
+.games h3 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  color: black;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.game {
+  width: 150px;
+  background-image: url("./src/kepek/magyar_kartya-e1640775461287.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-color: #ffd6dc;
+  color: black;
+  border: none;
+  border-radius: 22px;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.game:hover {
+  transform: translateY(-2px);
+}
+
+.game.active {
+  background: #ff3b3b;
+  color: white;
+}
+
+/* SAROK DÍSZEK */
+.sarok {
+  position: absolute;
+  width: 180px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+.bal-felso {
+  top: 0;
+  left: 0;
+  margin: 5px;
+}
+
+.jobb-felso {
+  top: 0;
+  right: 0;
+  margin: 5px;
+}
+
+.bal-also {
+  bottom: 0;
+  left: 0;
+  margin: 5px;
+}
+
+.jobb-also {
+  bottom: 0;
+  right: 0;
+  margin: 5px;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* MOBIL */
+@media (max-width: 600px) {
+  .form label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .form input,
+  .form select {
+    width: 100%;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game {
+    width: 100%;
+  }
+
+  .sarok {
+    width: 110px;
+    opacity: 0.6;
+  }
+}
+
+.kep2 {
+  margin-left: 180px;
+  width: 50px;
+  height: 50px;
+}
+
+.label2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  background: #ff3b3b;
+  border-radius: 90px;
+  padding: 10px;
+}
+
+.btn2 {
+  height: 60px;
+  width: 550px;
+  margin: 20px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: none;
+  background: #ff3b3b;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn3 {
+  height: 60px;
+  width: 550px;
+  margin: 35px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: none;
+  background: #ff3b3b;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn4 {
+  height: 60px;
+  width: 225px;
+  margin: 35px;
+  padding: 12px 32px;
+  border-radius: 30px;
+  border: none;
+  background: #ff3b3b;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn5 {
+  height: 75px;
+  width: 500px;
+  margin: 50px;
+  border-radius: 20px;
+  border: none;
+  background: #96073e;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.birth-row {
+  display: flex;
+  gap: 10px;
+}
+
+.birth-row input {
+  text-align: center;
+  width: 180px;
+}
+
+.hiba_uzi {
+  background-color: #ff3b3b;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.jo_uzi {
+  background-color: green;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.cim {
+  color: white;
+  text-align: center;
+  font-weight: 700
+}
+
+.vonal {
+  margin-top: 10px;
+  margin-bottom: 10px ;
+  background-color: #ff5c5c;
+  height: 10px;
+  width: 100%;
+  border-radius: 30px;
+}
+
+.scoreboard {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.scoreboard th {
+  background: #ff5c5c;
+  color: white;
+}
+
+.scoreboard td,
+.scoreboard th {
+  border: 2px solid red;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  height: 0px;
+  width: 250px;
+}
+
+.scoreboard tbody tr:nth-child(even) {
+  background: #ff5c5c;
+}
+
+.scoreboard tbody tr:nth-child(odd) {
+  background: #ff8b8b;
+}
+
+@media (max-width: 700px) {
+
+  .gombok {
+    grid-template-columns: 1fr;
+  }
+
+  .btn2 {
+    width: 100%;
+  }
+
+  .scoreboard {
+    font-size: 14px;
+  }
+
+}
+
+.megjelenites {
+  margin: 10px;
+  width: 500px;
+  background-image: url("./src/kepek/magyar_kartya-e1640775461287.jpg");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  background-color: #ffd6dc;
+  border-radius: 22px;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.szoveg {
+  color: white;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 50px;
+}
+
+.kartya {
+  border-radius: 10px;
+  width: 150px;
+}
+
+/* ------------------------- */
+/* JÁTÉK ELRENDEZÉS (ÚJ) */
+/* ------------------------- */
+
+.jatek-ter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+/* PAKLI */
+
+.pakli-container {
+  position: relative;
+  width: 140px;
+  height: 250px;
+}
+
+.pakli-container img {
+  position: absolute;
+  width: 170px;
+  border-radius: 10px;
+}
+
+.pakli {
+  top: 0px;
+  left: 0px;
+}
+
+.pakli1 {
+  top: 2px;
+  left: 2px;
+}
+
+.pakli2 {
+  top: 4px;
+  left: 4px;
+}
+
+.pakli3 {
+  top: 6px;
+  left: 6px;
+}
+
+.pakli4 {
+  top: 8px;
+  left: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pakli4:hover {
+  transform: scale(1.05);
+}
+
+/* HÚZOTT KÁRTYÁK */
+
+.kartyak-ter {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PONTSZÁM */
+
+.pontszam {
+  margin-top: 50px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 22px;
+  padding: 15px 30px;
+  border-radius: 20px;
+  width: 220px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.juzi {
+  background-color: lightblue;
+  border-radius: 10px;
+  padding: 10px;
+  width: 1000px;
+  text-align: center;
+  color: black;
+}
+
+.kep {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover; 
+  border-bottom-right-radius: 150px;
+  border-bottom-left-radius: 150px;
+}
+
+.kep1 {
+  width: 100%; 
+  height: 300px; 
+  object-fit: cover; 
+  border-top-left-radius: 150px; 
+  border-top-right-radius: 150px; 
+}
+
+.tema1 {
+  width: 120px;
+  height: 100px;
+  margin: 50px;
+  background-color: pink;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+  box-shadow: 0.15s ease;
+}
+
+.tema2 {
+  width: 120px;
+  height: 100px;
+  margin: 50px;
+  background-color: magenta;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+  box-shadow: 0.15s ease;
+}
+
+.tema3 {
+  width: 120px;
+  height: 100px;
+  margin: 50px;
+  background-color: lightgreen;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+  box-shadow: 0.15s ease;
+}
+
+.tema4 {
+  width: 120px;
+  height: 100px;
+  margin: 50px;
+  background-color: lightblue;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+  box-shadow: 0.15s ease;
+}
+
+/* ========================= */
+/* TÉMA RENDSZER */
+/* ========================= */
+
+:root {
+  --bg-color: #FF8E8E;
+  --btn-color: #ff5c5c;
+}
+
+/* külön témák */
+.theme-pink {
+  --bg-color: #FF8E8E;
+  --btn-color: #ff5c5c;
+}
+
+.theme-magenta {
+  --bg-color: #c317a3;
+  --btn-color: #d536b8;
+}
+
+.theme-green {
+  --bg-color: #7edc8b;
+  --btn-color: #3aa655;
+}
+
+.theme-blue {
+  --bg-color: #87c7ff;
+  --btn-color: #3b82f6;
+}
+
+/* használat */
+.app {
+  background: var(--bg-color);
+}
+
+.btn1 {
+  background: var(--btn-color);
+}
+
+.tema1.active,
+.tema2.active,
+.tema3.active,
+.tema4.active {
+  transform: scale(1.1);
+  border: 3px solid white;
+}
+
+/* ========================= */
+/* TÉMA RENDSZER */
+/* ========================= */
+
+:root {
+  --bg-color: #FF8E8E;
+  --btn-color: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+  --text-color: white;
+}
+
+/* TÉMÁK */
+.theme-pink {
+  --bg-color: #FF8E8E;
+  --btn-color: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+}
+
+.theme-magenta {
+  --bg-color: #ff36da;
+  --btn-main: #c317a3;
+  --btn-secondary: #d536b8;
+}
+
+.theme-green {
+  --bg-color: #7edc8b;
+  --btn-color: #3aa655;
+  --btn-secondary: #2e8b57;
+}
+
+.theme-blue {
+  --bg-color: #87c7ff;
+  --btn-color: #3b82f6;
+  --btn-secondary: #2563eb;
+}
+
+/* HASZNÁLAT */
+.app {
+  background: var(--bg-color);
+}
+
+/* GOMBOK */
+.btn2 {
+  background: var(--btn-color);
+  color: var(--text-color);
+}
+
+.btn4 {
+  background: var(--btn-secondary);
+  color: var(--text-color);
+}
+
+.btn1 {
+  background: var(--btn-secondary);
+  color: var(--text-color);
+}
+
+.btn2:hover,
+.btn4:hover,
+.btn1:hover {
+  filter: brightness(1.1);
+}
+
+/* ========================= */
+/* TELJES TÉMA RENDSZER */
+/* ========================= */
+
+:root {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+  --text-color: white;
+  --card-bg: #ffd6dc;
+}
+
+/* TÉMÁK */
+.theme-pink {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+}
+
+.theme-magenta {
+  --bg-color: #ff36da;
+  --btn-main: #c317a3;
+  --btn-secondary: #d536b8;
+}
+
+.theme-green {
+  --bg-color: #7edc8b;
+  --btn-main: #3aa655;
+  --btn-secondary: #2e8b57;
+}
+
+.theme-blue {
+  --bg-color: #87c7ff;
+  --btn-main: #3b82f6;
+  --btn-secondary: #2563eb;
+}
+
+/* ALAP */
+.app {
+  background: var(--bg-color) !important;
+}
+
+/* GOMBOK */
+.btn1,
+.btn2,
+.btn3,
+.btn4,
+.btn5 {
+  background: var(--btn-main) !important;
+  color: var(--text-color) !important;
+}
+
+/* MÁSODLAGOS GOMB */
+.btn4 {
+  background: var(--btn-secondary) !important;
+}
+
+/* SZÖVEG */
+.cim {
+  color: var(--text-color) !important;
+}
+
+/* LABEL */
+.label2 {
+  background: var(--btn-main) !important;
+  color: var(--text-color) !important;
+}
+
+/* KÁRTYA / MEGJELENÍTÉS */
+.megjelenites {
+  background-color: var(--card-bg) !important;
+}
+
+/* HOVER */
+.btn1:hover,
+.btn2:hover,
+.btn3:hover,
+.btn4:hover,
+.btn5:hover {
+  filter: brightness(1.1);
+}
+
+/* ========================= */
+/* TÁBLÁZAT TÉMA */
+/* ========================= */
+
+.scoreboard th {
+  background: var(--btn-secondary) !important;
+  color: var(--text-color) !important;
+}
+
+.scoreboard td,
+.scoreboard th {
+  border: 2px solid var(--btn-main) !important;
+  color: var(--text-color) !important;
+}
+
+/* páros sor */
+.scoreboard tbody tr:nth-child(even) {
+  background: var(--btn-secondary) !important;
+}
+
+/* páratlan sor */
+.scoreboard tbody tr:nth-child(odd) {
+  background: var(--btn-main) !important;
+}
+.vonal {
+  background: linear-gradient(
+    to right,
+    var(--btn-main),
+    var(--btn-secondary)
+  ) !important;
+}
