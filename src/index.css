@@ -1,3 +1,12 @@
+:root{
+  --bg-pink-color: #FF8E8E;
+  --bg-magenta-color: #c317a3;
+  --bg-green-color: #7edc8b;
+  --bg-blue-color: #87c7ff;
+  --card-bg: #ffd6dc;
+  --btn-pink-color: #ff5c5c;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -501,7 +510,7 @@ body {
   width: 120px;
   height: 100px;
   margin: 50px;
-  background-color: pink;
+  background-color: #FF8E8E;
   border: none;
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
@@ -513,7 +522,7 @@ body {
   width: 120px;
   height: 100px;
   margin: 50px;
-  background-color: magenta;
+  background-color: #c317a3;
   border: none;
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
@@ -525,7 +534,7 @@ body {
   width: 120px;
   height: 100px;
   margin: 50px;
-  background-color: lightgreen;
+  background-color: #7edc8b;
   border: none;
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
@@ -537,7 +546,7 @@ body {
   width: 120px;
   height: 100px;
   margin: 50px;
-  background-color: lightblue;
+  background-color: #87c7ff;
   border: none;
   border-radius: 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
@@ -549,39 +558,11 @@ body {
 /* TÉMA RENDSZER */
 /* ========================= */
 
-:root {
-  --bg-color: #FF8E8E;
-  --btn-color: #ff5c5c;
-}
-
 /* külön témák */
-.theme-pink {
-  --bg-color: #FF8E8E;
-  --btn-color: #ff5c5c;
-}
-
-.theme-magenta {
-  --bg-color: #c317a3;
-  --btn-color: #d536b8;
-}
-
-.theme-green {
-  --bg-color: #7edc8b;
-  --btn-color: #3aa655;
-}
-
-.theme-blue {
-  --bg-color: #87c7ff;
-  --btn-color: #3b82f6;
-}
 
 /* használat */
 .app {
   background: var(--bg-color);
-}
-
-.btn1 {
-  background: var(--btn-color);
 }
 
 .tema1.active,
@@ -596,34 +577,27 @@ body {
 /* TÉMA RENDSZER */
 /* ========================= */
 
-:root {
-  --bg-color: #FF8E8E;
-  --btn-color: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-  --text-color: white;
-}
-
 /* TÉMÁK */
 .theme-pink {
-  --bg-color: #FF8E8E;
+  background-color: var(--bg-pink-color);
   --btn-color: #ff3b3b;
   --btn-secondary: #ff5c5c;
 }
 
 .theme-magenta {
-  --bg-color: #ff36da;
+  background-color: var(--bg-magenta-color);
   --btn-main: #c317a3;
   --btn-secondary: #d536b8;
 }
 
 .theme-green {
-  --bg-color: #7edc8b;
+  background-color: var(--bg-green-color);
   --btn-color: #3aa655;
   --btn-secondary: #2e8b57;
 }
 
 .theme-blue {
-  --bg-color: #87c7ff;
+  background-color: var(--bg-blue-color);
   --btn-color: #3b82f6;
   --btn-secondary: #2563eb;
 }
@@ -658,14 +632,6 @@ body {
 /* ========================= */
 /* TELJES TÉMA RENDSZER */
 /* ========================= */
-
-:root {
-  --bg-color: #FF8E8E;
-  --btn-main: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-  --text-color: white;
-  --card-bg: #ffd6dc;
-}
 
 /* TÉMÁK */
 .theme-pink {
@@ -761,6 +727,103 @@ body {
 .scoreboard tbody tr:nth-child(odd) {
   background: var(--btn-main) !important;
 }
+.vonal {
+  background: linear-gradient(
+    to right,
+    var(--btn-main),
+    var(--btn-secondary)
+  ) !important;
+}
+
+/* ========================= */
+/* 🔥 FIX THEME (EZ FELÜLÍR MINDENT) */
+/* ========================= */
+
+:root {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+  --text-color: white;
+  --card-bg: #ffd6dc;
+}
+
+/* TÉMÁK */
+.theme-pink {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+}
+
+.theme-magenta {
+  --bg-color: #ff78e6;
+  --btn-main: #c317a3;
+  --btn-secondary: #d536b8;
+}
+
+.theme-green {
+  --bg-color: #a9e7b1;
+  --btn-main: #3aa655;
+  --btn-secondary: #2e8b57;
+}
+
+.theme-blue {
+  --bg-color: #afd9ff;
+  --btn-main: #3b82f6;
+  --btn-secondary: #2563eb;
+}
+
+/* ========================= */
+/* 🔗 RÁKÖTÉS A RÉGI CSS-RE */
+/* ========================= */
+
+.app {
+  background: var(--bg-color) !important;
+}
+
+.btn1,
+.btn2,
+.btn3,
+.btn4,
+.btn5 {
+  background: var(--btn-main) !important;
+  color: var(--text-color) !important;
+}
+
+.btn4 {
+  background: var(--btn-secondary) !important;
+}
+
+.cim,
+.szoveg {
+  color: var(--text-color) !important;
+}
+
+.label2 {
+  background: var(--btn-main) !important;
+  color: var(--text-color) !important;
+}
+
+.megjelenites {
+  background-color: var(--card-bg) !important;
+}
+
+.scoreboard th {
+  background: var(--btn-secondary) !important;
+}
+
+.scoreboard td,
+.scoreboard th {
+  border: 2px solid var(--btn-main) !important;
+}
+
+.scoreboard tbody tr:nth-child(even) {
+  background: var(--btn-secondary) !important;
+}
+
+.scoreboard tbody tr:nth-child(odd) {
+  background: var(--btn-main) !important;
+}
+
 .vonal {
   background: linear-gradient(
     to right,
