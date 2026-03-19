@@ -9,6 +9,7 @@ import Register from "./pages/Register"
 import Menu from "./pages/Menu"
 import Login from './pages/Login'
 import Options from './pages/Options'
+import Admin from './pages/Admin'
 
 // Indítások
 import Start from './pages/starts/Start'
@@ -53,6 +54,7 @@ function App() {
         <Route path='menu' element={<Menu />} />
         <Route path='login' element={<Login />} />
         <Route path='options' element={<Options />} />
+        <Route path='admin' element={<Admin />} />
         <Route path='scoreboard' element={<Scorealap />} />
         <Route path='scoreboard1' element={<Scoreboard1 />} />
         <Route path='scoreboard2' element={<Scoreboard2 />} />
