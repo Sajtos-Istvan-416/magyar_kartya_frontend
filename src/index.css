@@ -796,6 +796,7 @@ body {
 .cim,
 .szoveg {
   color: var(--text-color) !important;
+  text-shadow:1px 1px 10px black;
 }
 
 .label2 {
