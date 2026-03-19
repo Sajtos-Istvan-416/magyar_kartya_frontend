@@ -60,7 +60,7 @@ export default function Options() {
             {hiba && <div className="hiba_uzi">{hiba}</div>}
             {uzenet && <div className="jo_uzi">{uzenet}</div>}
 
-            <a href="/menu"><button className="btn1">Vissza</button></a>
+            <a href="/menu"><button className="btn1" style={{marginLeft:50}}>Vissza</button></a>
 
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center col-lg-12">
 
