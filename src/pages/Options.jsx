@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout, whoAmi } from '../api';
+import { Link } from "react-router-dom";
 
 export default function Options() {
 
@@ -12,6 +13,7 @@ export default function Options() {
     const [tema, setTema] = useState(
         localStorage.getItem("tema") || "theme-pink"
     );
+    const isAdmin = user?.role === 'admin'
 
     const navigate = useNavigate();
 
@@ -60,7 +62,7 @@ export default function Options() {
             {hiba && <div className="hiba_uzi">{hiba}</div>}
             {uzenet && <div className="jo_uzi">{uzenet}</div>}
 
-            <a href="/menu"><button className="btn1" style={{marginLeft:50}}>Vissza</button></a>
+            <a href="/menu"><button className="btn1" style={{ marginLeft: 50 }}>Vissza</button></a>
 
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center col-lg-12">
 
@@ -75,13 +77,13 @@ export default function Options() {
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
                         <h2 style={{ maxWidth: 40 }} className='szoveg'>Név:</h2>
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
-                            <span style={{ maxWidth: "85%",padding:10}}>
+                            <span style={{ maxWidth: "85%", padding: 10 }}>
                                 {user?.username}
                             </span>
                             <img
                                 src="./src/kepek/szerkesztes.svg"
                                 alt=""
-                                style={{ width: 25, height: 25}}
+                                style={{ width: 25, height: 25 }}
                             />
                         </div>
                     </div>
@@ -89,13 +91,13 @@ export default function Options() {
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
                         <h2 style={{ maxWidth: 40 }} className='szoveg'>Email:</h2>
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
-                            <span style={{ maxWidth: "85%" ,padding:10}}>
+                            <span style={{ maxWidth: "85%", padding: 10 }}>
                                 {user?.email}
                             </span>
                             <img
                                 src="./src/kepek/szerkesztes.svg"
                                 alt=""
-                                style={{ width: 25, height: 25,}}
+                                style={{ width: 25, height: 25, }}
                             />
                         </div>
                     </div>
@@ -141,6 +143,8 @@ export default function Options() {
                 />
 
             </div>
+
+            {isAdmin && <Link to='/admin' className="px-3 py-1 m-4 text-black justify-content-center d-flex fs-4">Admin panel</Link>}
 
             <img src="./src/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
 
