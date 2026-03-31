@@ -144,7 +144,9 @@ export default function Options() {
 
             </div>
 
-            {isAdmin && <Link to='/admin' className="px-3 py-1 m-4 text-black justify-content-center d-flex fs-4">Admin panel</Link>}
+            <div className='d-flex justify-content-center align-itmes-cneter'>
+
+            {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}</div>
 
             <img src="./src/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
 

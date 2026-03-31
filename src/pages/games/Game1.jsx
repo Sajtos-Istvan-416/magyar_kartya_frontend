@@ -14,6 +14,8 @@ export default function Game1() {
   const [dealer, setDealer] = useState([])
   const [dealerPontszam, setDealerPontszam] = useState(0)
 
+  const [animPont, setAnimPont] = useState(false);
+
   async function huzas() {
 
     setHiba('')
@@ -99,6 +101,11 @@ export default function Game1() {
     document.body.className = tema;
   }, []);
 
+  useEffect(() => {
+    setAnimPont(true);
+    setTimeout(() => setAnimPont(false), 200);
+  }, [pontszam, dealerPontszam]);
+
   return (
 
     <div className="app">
@@ -125,15 +132,13 @@ export default function Game1() {
             {/* HÚZOTT KÁRTYÁK */}
             <div className="kartyak-ter">
 
-              {dealer && dealer.length > 0 && dealer.map((kartya, index) => (
-
+              {dealer && dealer.map((kartya, index) => (
                 <img
                   key={index}
                   src={`http://127.0.0.1:4000/card_img/${kartya.card_img}`}
-                  alt={kartya.card_name}
                   className="kartya"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 />
-
               ))}
 
             </div>
@@ -195,13 +200,15 @@ export default function Game1() {
           {/* PONTSZÁM */}
           <div className="col-12 m-5 d-flex justify-content-between align-items-center">
 
-            <div className="pontszam">
+            <div className={`pontszam ${animPont ? "frissult" : ""}`}>
               <div>
                 Osztó: {dealerPontszam}
               </div>
+
               <div>
                 Játékos: {pontszam}
               </div>
+
               <button onClick={megall} className='btn1'>Megállok</button>
 
             </div>
@@ -214,7 +221,7 @@ export default function Game1() {
 
       </div>
 
-    </div>
+    </div >
 
   )
 
