@@ -10,6 +10,7 @@ import Menu from "./pages/Menu"
 import Login from './pages/Login'
 import Options from './pages/Options'
 import Admin from './pages/Admin'
+import Home from './pages/Home'
 
 // Indítások
 import Start from './pages/starts/Start'
@@ -50,6 +51,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path='register' element={<Register />} />
         <Route path='menu' element={<Menu />} />
         <Route path='login' element={<Login />} />

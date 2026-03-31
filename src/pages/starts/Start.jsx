@@ -32,7 +32,6 @@ export default function Start() {
                             {/* OSZLOP */}
                             <a href="/game1"><button className="btn3">Mehet!</button></a>
                             <a href="/gamerule1"><button className="btn3">Játékszabály</button></a>
-                            <label className="label2">10 <img className="kep2" src="../src/kepek/sziv.avif" alt="" /></label>
                             <label className="label2">Pontszám: 0 <img className="kep2" src="../src/kepek/kupa.png" alt="" /></label>
                             <a href="/menu"><button className="btn3">Főmenü</button></a>
                         </div>

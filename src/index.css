@@ -1,10 +1,42 @@
-:root{
-  --bg-pink-color: #FF8E8E;
-  --bg-magenta-color: #c317a3;
-  --bg-green-color: #7edc8b;
-  --bg-blue-color: #87c7ff;
+:root {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+  --text-color: white;
   --card-bg: #ffd6dc;
-  --btn-pink-color: #ff5c5c;
+}
+
+.theme-pink {
+  --bg-color: #FF8E8E;
+  --btn-main: #ff3b3b;
+  --btn-secondary: #ff5c5c;
+}
+
+.theme-magenta {
+  --bg-color: #ff78e6;
+  --btn-main: #c317a3;
+  --btn-secondary: #d536b8;
+}
+
+.theme-green {
+  --bg-color: #a9e7b1;
+  --btn-main: #3aa655;
+  --btn-secondary: #2e8b57;
+}
+
+.theme-blue {
+  --bg-color: #afd9ff;
+  --btn-main: #3b82f6;
+  --btn-secondary: #2563eb;
+}
+
+body {
+  color: var(--text-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 * {
@@ -222,7 +254,7 @@ body {
   font-size: 30px;
   color: black;
   font-weight: bold;
-  background: #ff3b3b;
+  background: var(--btn-main);
   border-radius: 90px;
   padding: 10px;
 }
@@ -234,7 +266,7 @@ body {
   padding: 12px 32px;
   border-radius: 30px;
   border: none;
-  background: #ff3b3b;
+  background: var(--btn-main);
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -248,7 +280,7 @@ body {
   padding: 12px 32px;
   border-radius: 30px;
   border: none;
-  background: #ff3b3b;
+  background: var(--btn-main);
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -262,7 +294,7 @@ body {
   padding: 12px 32px;
   border-radius: 30px;
   border: none;
-  background: #ff3b3b;
+  background: var(--btn-main);
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -316,7 +348,7 @@ body {
 
 .vonal {
   margin-top: 10px;
-  margin-bottom: 10px ;
+  margin-bottom: 10px;
   background-color: #ff5c5c;
   height: 10px;
   width: 100%;
@@ -470,7 +502,7 @@ body {
 
 .pontszam {
   margin-top: 50px;
-  background: #ff3b3b;
+  background: red;
   color: white;
   font-size: 22px;
   padding: 15px 30px;
@@ -492,18 +524,18 @@ body {
 
 .kep {
   width: 100%;
-  height: 300px; 
-  object-fit: cover; 
+  height: 300px;
+  object-fit: cover;
   border-bottom-right-radius: 150px;
   border-bottom-left-radius: 150px;
 }
 
 .kep1 {
-  width: 100%; 
-  height: 300px; 
-  object-fit: cover; 
-  border-top-left-radius: 150px; 
-  border-top-right-radius: 150px; 
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-top-left-radius: 150px;
+  border-top-right-radius: 150px;
 }
 
 .tema1 {
@@ -554,57 +586,12 @@ body {
   box-shadow: 0.15s ease;
 }
 
-/* ========================= */
-/* TÉMA RENDSZER */
-/* ========================= */
-
-/* külön témák */
-
-/* használat */
-.app {
-  background: var(--bg-color);
-}
-
 .tema1.active,
 .tema2.active,
 .tema3.active,
 .tema4.active {
   transform: scale(1.1);
   border: 3px solid white;
-}
-
-/* ========================= */
-/* TÉMA RENDSZER */
-/* ========================= */
-
-/* TÉMÁK */
-.theme-pink {
-  background-color: var(--bg-pink-color);
-  --btn-color: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-}
-
-.theme-magenta {
-  background-color: var(--bg-magenta-color);
-  --btn-main: #c317a3;
-  --btn-secondary: #d536b8;
-}
-
-.theme-green {
-  background-color: var(--bg-green-color);
-  --btn-color: #3aa655;
-  --btn-secondary: #2e8b57;
-}
-
-.theme-blue {
-  background-color: var(--bg-blue-color);
-  --btn-color: #3b82f6;
-  --btn-secondary: #2563eb;
-}
-
-/* HASZNÁLAT */
-.app {
-  background: var(--bg-color);
 }
 
 /* GOMBOK */
@@ -627,35 +614,6 @@ body {
 .btn4:hover,
 .btn1:hover {
   filter: brightness(1.1);
-}
-
-/* ========================= */
-/* TELJES TÉMA RENDSZER */
-/* ========================= */
-
-/* TÉMÁK */
-.theme-pink {
-  --bg-color: #FF8E8E;
-  --btn-main: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-}
-
-.theme-magenta {
-  --bg-color: #ff36da;
-  --btn-main: #c317a3;
-  --btn-secondary: #d536b8;
-}
-
-.theme-green {
-  --bg-color: #7edc8b;
-  --btn-main: #3aa655;
-  --btn-secondary: #2e8b57;
-}
-
-.theme-blue {
-  --bg-color: #87c7ff;
-  --btn-main: #3b82f6;
-  --btn-secondary: #2563eb;
 }
 
 /* ALAP */
@@ -701,6 +659,7 @@ body {
 .btn4:hover,
 .btn5:hover {
   filter: brightness(1.1);
+  transform: scale(1.05);
 }
 
 /* ========================= */
@@ -727,76 +686,22 @@ body {
 .scoreboard tbody tr:nth-child(odd) {
   background: var(--btn-main) !important;
 }
+
 .vonal {
-  background: linear-gradient(
-    to right,
-    var(--btn-main),
-    var(--btn-secondary)
-  ) !important;
+  background: linear-gradient(to right,
+      var(--btn-main),
+      var(--btn-secondary)) !important;
 }
-
-/* ========================= */
-/* 🔥 FIX THEME (EZ FELÜLÍR MINDENT) */
-/* ========================= */
-
-:root {
-  --bg-color: #FF8E8E;
-  --btn-main: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-  --text-color: white;
-  --card-bg: #ffd6dc;
-}
-
-/* TÉMÁK */
-.theme-pink {
-  --bg-color: #FF8E8E;
-  --btn-main: #ff3b3b;
-  --btn-secondary: #ff5c5c;
-}
-
-.theme-magenta {
-  --bg-color: #ff78e6;
-  --btn-main: #c317a3;
-  --btn-secondary: #d536b8;
-}
-
-.theme-green {
-  --bg-color: #a9e7b1;
-  --btn-main: #3aa655;
-  --btn-secondary: #2e8b57;
-}
-
-.theme-blue {
-  --bg-color: #afd9ff;
-  --btn-main: #3b82f6;
-  --btn-secondary: #2563eb;
-}
-
-/* ========================= */
-/* 🔗 RÁKÖTÉS A RÉGI CSS-RE */
-/* ========================= */
 
 .app {
   background: var(--bg-color) !important;
 }
 
-.btn1,
-.btn2,
-.btn3,
-.btn4,
-.btn5 {
-  background: var(--btn-main) !important;
-  color: var(--text-color) !important;
-}
-
-.btn4 {
-  background: var(--btn-secondary) !important;
-}
-
 .cim,
+.toltes,
 .szoveg {
   color: var(--text-color) !important;
-  text-shadow:1px 1px 10px black;
+  text-shadow: 1px 1px 10px black;
 }
 
 .label2 {
@@ -826,9 +731,145 @@ body {
 }
 
 .vonal {
-  background: linear-gradient(
-    to right,
-    var(--btn-main),
-    var(--btn-secondary)
-  ) !important;
+  background: linear-gradient(to right,
+      var(--btn-main),
+      var(--btn-secondary)) !important;
+}
+
+.kartya {
+  border-radius: 10px;
+  width: 150px;
+  animation: kartyaBe 0.4s ease;
+}
+
+@keyframes kartyaBe {
+  from {
+    transform: translateY(-50px) scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.pakli4:active {
+  transform: scale(0.95);
+}
+
+.pontszam {
+  transition: transform 0.2s ease;
+}
+
+.pontszam.frissult {
+  transform: scale(1.1);
+}
+
+.btn1,
+.btn5 {
+  transition: all 0.2s ease;
+}
+
+.btn1:hover,
+.btn5:hover {
+  transform: scale(1.05);
+}
+
+.hiba_uzi,
+.juzi {
+  animation: fadeBe 0.5s ease;
+}
+
+@keyframes fadeBe {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kartya {
+  animation: kartyaBe 0.4s ease forwards;
+  opacity: 0;
+}
+
+.btn2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent);
+  transition: 0.5s;
+}
+
+.btn2:hover::after {
+  left: 100%;
+}
+
+.btn2 {
+  animation: lebeg 3s ease-in-out infinite;
+}
+
+@keyframes lebeg {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.menu-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: beuszas 0.6s ease forwards;
+}
+
+@keyframes beuszas {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app {
+  animation: hatterPulse 5s infinite alternate;
+}
+
+@keyframes hatterPulse {
+  0% {
+    filter: brightness(1);
+  }
+
+  100% {
+    filter: brightness(1.05);
+  }
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.toltes{
+  background: var(--bg-color) !important;
 }
