@@ -57,7 +57,7 @@ export default function Options() {
     return (
         <div className="app">
 
-            <img src="./src/kepek/magyar_kartya-e1640775461287.jpg" className="kep" alt="" />
+            <img src="/kepek/magyar_kartya-e1640775461287.jpg" className="kep" alt="" />
 
             {hiba && <div className="hiba_uzi">{hiba}</div>}
             {uzenet && <div className="jo_uzi">{uzenet}</div>}
@@ -68,7 +68,7 @@ export default function Options() {
 
                 <img className="rounded-circle border border-5 border-danger mx-md-5 mb-3 mb-md-0"
                     style={{ width: "150px", maxWidth: "100%" }}
-                    src="../src/kepek/user.jpg"
+                    src="./kepek/user.jpg"
                     alt=""
                 />
 
@@ -81,7 +81,7 @@ export default function Options() {
                                 {user?.username}
                             </span>
                             <img
-                                src="./src/kepek/szerkesztes.svg"
+                                src="/kepek/szerkesztes.svg"
                                 alt=""
                                 style={{ width: 25, height: 25 }}
                             />
@@ -95,7 +95,7 @@ export default function Options() {
                                 {user?.email}
                             </span>
                             <img
-                                src="./src/kepek/szerkesztes.svg"
+                                src="/kepek/szerkesztes.svg"
                                 alt=""
                                 style={{ width: 25, height: 25, }}
                             />
@@ -148,7 +148,7 @@ export default function Options() {
 
             {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}</div>
 
-            <img src="./src/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
+            <img src="/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
 
         </div>
     )

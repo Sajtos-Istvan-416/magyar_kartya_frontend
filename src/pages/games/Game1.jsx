@@ -111,10 +111,10 @@ export default function Game1() {
     <div className="app">
 
       {/* SAROK DÍSZEK */}
-      <img src={`./src/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
-      <img src={`./src/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
-      <img src={`./src/kepek/balalso-${tema}.png`} className="sarok bal-also" />
-      <img src={`./src/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
+      <img src={`/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
+      <img src={`/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
+      <img src={`/kepek/balalso-${tema}.png`} className="sarok bal-also" />
+      <img src={`/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
 
       <div className="container">
 
@@ -161,13 +161,13 @@ export default function Game1() {
 
               <div className="pakli-container">
 
-                <img src="./src/kepek/pakli.png" className="pakli" alt="" />
-                <img src="./src/kepek/pakli.png" className="pakli1" alt="" />
-                <img src="./src/kepek/pakli.png" className="pakli2" alt="" />
-                <img src="./src/kepek/pakli.png" className="pakli3" alt="" />
+                <img src="/kepek/pakli.png" className="pakli" alt="" />
+                <img src="/kepek/pakli.png" className="pakli1" alt="" />
+                <img src="/kepek/pakli.png" className="pakli2" alt="" />
+                <img src="/kepek/pakli.png" className="pakli3" alt="" />
 
                 <img
-                  src="./src/kepek/pakli.png"
+                  src="/kepek/pakli.png"
                   className="pakli4"
                   onClick={huzas}
                   alt=""

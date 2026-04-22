@@ -51,10 +51,10 @@ export default function Login() {
     <div className="app">
 
       {/* SAROK DÍSZEK */}
-      <img src={`./src/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
-      <img src={`./src/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
-      <img src={`./src/kepek/balalso-${tema}.png`} className="sarok bal-also" />
-      <img src={`./src/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
+      <img src={`/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
+      <img src={`/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
+      <img src={`/kepek/balalso-${tema}.png`} className="sarok bal-also" />
+      <img src={`/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
 
       <div className="container">
 

@@ -12,10 +12,10 @@ export default function Start2() {
         <div className="app">
 
             {/* SAROK DÍSZEK */}
-            <img src={`./src/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
-            <img src={`./src/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
-            <img src={`./src/kepek/balalso-${tema}.png`} className="sarok bal-also" />
-            <img src={`./src/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
+            <img src={`/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
+            <img src={`/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
+            <img src={`/kepek/balalso-${tema}.png`} className="sarok bal-also" />
+            <img src={`/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
 
             {/* FŐ GRID */}
             <div className="container">
@@ -31,7 +31,7 @@ export default function Start2() {
                             {/* OSZLOP */}
                             <button className="btn3">Mehet!</button>
                             <a href="/gamerule3"><button className="btn3">Játékszabály</button></a>
-                            <label className="label2">Pontszám: 0 <img className="kep2" src="../src/kepek/kupa.png" alt="" /></label>
+                            <label className="label2">Pontszám: 0 <img className="kep2" src="./kepek/kupa.png" alt="" /></label>
                             <a href="/menu"><button className="btn3">Főmenü</button></a>
                         </div>
                     </div>
