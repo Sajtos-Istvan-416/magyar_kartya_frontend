@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css' 
 import { useState, useEffect } from "react";
 import { logout, whoAmi } from '../api';
 import { Navigate } from "react-router-dom";
