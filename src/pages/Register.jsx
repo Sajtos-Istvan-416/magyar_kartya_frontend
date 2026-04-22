@@ -77,10 +77,10 @@ export default function Register() {
     <div className="app">
 
       {/* SAROK DÍSZEK */}
-      <img src={`./src/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
-      <img src={`./src/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
-      <img src={`./src/kepek/balalso-${tema}.png`} className="sarok bal-also" />
-      <img src={`./src/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
+      <img src={`/kepek/balfelso-${tema}.png`} className="sarok bal-felso" />
+      <img src={`/kepek/jobbfelso-${tema}.png`} className="sarok jobb-felso" />
+      <img src={`/kepek/balalso-${tema}.png`} className="sarok bal-also" />
+      <img src={`/kepek/jobbalso-${tema}.png`} className="sarok jobb-also" />
 
       <div className="container">
 
@@ -108,7 +108,7 @@ export default function Register() {
 
               <img
                 onClick={() => setShowPassword1(!showPassword1)}
-                src="./src/kepek/visibility.svg"
+                src="/kepek/visibility.svg"
                 alt=""
                 style={{ width: 25, height: 25, marginTop: 40, marginLeft:5 }} />
 
@@ -124,7 +124,7 @@ export default function Register() {
               />
               <img
                 onClick={() => setShowPassword2(!showPassword2)}
-                src="./src/kepek/visibility.svg"
+                src="/kepek/visibility.svg"
                 alt=""
                 style={{ width: 25, height: 25, marginTop: 40, marginLeft:5 }} />
 
