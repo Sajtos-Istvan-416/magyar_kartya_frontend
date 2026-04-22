@@ -1,0 +1,44 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://nodejs.dszcbaross.edu.hu/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/users*"
+  to = "https://nodejs.dszcbaross.edu.hu/users/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/login"
+  to = "https://nodejs.dszcbaross.edu.hu/login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/logout"
+  to = "https://nodejs.dszcbaross.edu.hu/logout"
+  status = 200
+  force = true
+
+  [[redirects]]
+  from = "/admin/*"
+  to = "https://nodejs.dszcbaross.edu.hu/api/admin/:splat"
+  status = 200
+  force = true
+
+  [[redirects]]
+  from = "/api/game"
+  to = "https://nodejs.dszcbaross.edu.hu/api/game"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
