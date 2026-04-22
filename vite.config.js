@@ -13,15 +13,15 @@ export default defineConfig({
   server:{
     proxy: {
       '/users': {
-        target: 'http://127.0.0.1:4000',
+        target: 'https://nodejs303.dszcbaross.edu.hu',
         changeOrigin: true
       },
       '/api/game': {
-        target: 'http://127.0.0.1:4000',
+        target: 'https://nodejs303.dszcbaross.edu.hu',
         changeOrigin: true
       },
       '/api/admin': {
-        target: 'http://127.0.0.1:4000',
+        target: 'https://nodejs303.dszcbaross.edu.hu',
         changeOrigin: true
       }
     }

@@ -1,10 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { logout, whoAmi } from '../api';
-import { Link } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { deleteUser } from "../admin"
+import { getAllUsers, userEdit, deleteUser } from "../admin"
+import Table from '../components/Table';
 
 export default function Admin() {
 
@@ -13,11 +12,19 @@ export default function Admin() {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
+    const [allUsers, setAllUsers] = useState(null)
+    const [errorAllUsers, setErrorAllUsers] = useState('')
+
+    const [selectedUser, setSelectedUser] = useState(null)
+    const [showModal, setShowModal] = useState(false)
+
+    const [user_name, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [role, setRole] = useState('')
+
     const [tema, setTema] = useState(
         localStorage.getItem("tema") || "theme-pink"
     );
-
-    const navigate = useNavigate();
 
     // THEME APPLY
     useEffect(() => {
@@ -25,54 +32,75 @@ export default function Admin() {
         localStorage.setItem("tema", tema);
     }, [tema]);
 
-    // USER LOAD
     useEffect(() => {
-        async function loadUser() {
+        async function loadData() {
             try {
-                const data = await whoAmi()
-                if (data.error) {
-                    setHiba(data.error)
+                const userData = await whoAmi()
+
+                if (!userData.error) {
+                    setUser(userData)
+
+                    const users = await getAllUsers()
+                    if (!users.error) {
+                        setAllUsers(users)
+                    } else {
+                        setErrorAllUsers(users.error)
+                    }
                 } else {
-                    setUser(data)
+                    setHiba(userData.error)
                 }
+
             } catch {
-                setHiba("Nem sikerült lekérni a felhasználót")
+                setHiba("Hiba történt")
             } finally {
-                setTimeout(() => {
-                    setLoading(false)
-                }, 1500);
+                setLoading(false)
             }
         }
-        loadUser()
+
+        loadData()
     }, [])
 
-    async function torles(user_id) {
-        setUzenet('');
-        setHiba('');
+    async function handleDelete(user) {
+        setErrorAllUsers('')
+        setSelectedUser(user)
 
-        try {
-            const data = await deleteUser(user_id);
+        const confirmDelete = window.confirm(`Biztosan törölni akarod a ${user.user_name} felhasználót?`)
 
-            if (data.error) {
-                return setHiba(data.error);
-            }
-
-            setUzenet(data.message || 'Felhasználó törölve!');
-            setUser(null);
-        } catch {
-            setHiba('Nem sikerült kapcsolódni a backendhez.');
+        if (!confirmDelete) {
+            return
         }
+
+        const data = await deleteUser(user.user_id)
+
+        if (data.error) {
+            setErrorAllUsers(data.error)
+            return alert(errorAllUsers)
+        }
+
+        return alert('Sikeres módosítás')
+
     }
 
-    if (loading) return (
-        <div className="w-100 vh-100 d-flex justify-content-center align-items-center flex-column toltes">
-            <div style={{ width: "4rem", height: "4rem" }} className=" m-3 spinner-border spinner-border-lg"></div>
-            <div style={{ fontSize: 25 }} className='toltes'>Betöltés...</div>
-        </div>
-    )
-
-    if (!user || user.role !== 'admin') {
+    if (!loading && (!user || user.role !== 'admin')) {
         return <Navigate to='/menu' />
+    }
+
+    function handleEdit(user) {
+        setSelectedUser(user)
+        setShowModal(true)
+    }
+
+    async function editUser(user_id) {
+        setErrorAllUsers('')
+
+        const data = await userEdit(user_id, user_name, email, role)
+
+        if (data.error) {
+            setErrorAllUsers(data.error)
+            return alert(errorAllUsers)
+        }
+
+        return alert('Sikeres módosítás')
     }
 
     return (
@@ -87,28 +115,49 @@ export default function Admin() {
 
             <h1 className='cim'>ADMIN PANEL!!!</h1>
 
-            <table className="scoreboard table container table-dark" style={{ textAlign: 'center', visibility: 50 }}>
-                <thead>
-                    <tr className="text-center">
-                        <th>Id</th>
-                        <th>FelhasználóNev</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Törlés</th>
-                        <th>Szerkesztés</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr className="text-center" key={user.user_id}>
-                        <td>{user.user_id}</td>
-                        <td>{user.username}</td>
-                        <td>{user.email}</td>
-                        <td>{user.role}</td>
-                        <td><button onClick={ torles } style={{ background: 'red', border: 'none', padding: 10, width: 150, borderRadius: 30 }}>Törlés</button></td>
-                        <td><button style={{ background: 'yellow', border: 'none', padding: 10, width: 150, borderRadius: 30 }}>Szerkesztés</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <Table allUsers={allUsers} onEdit={handleEdit} onDelete={handleDelete} />
+
+            {showModal && selectedUser && (
+                <div className='modal d-block' tabIndex='-1'>
+                    <div className="modal-dialog">
+                        <div className="modal-content p-3">
+                            <h5>Szerkesztés</h5>
+
+                            <label className="form-label fw-bold">Username: </label>
+                            <input
+                                type="text"
+                                className='form-control border-dark'
+                                defaultValue={selectedUser.user_name}
+                                placeholder='John Doe'
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+
+                            <label className="form-label fw-bold">Email: </label>
+                            <input
+                                type="email"
+                                className='form-control border-dark'
+                                defaultValue={selectedUser.email}
+                                placeholder='example@example.com'
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+
+                            <label className="form-label fw-bold">Role: </label>
+                            <input
+                                type="text"
+                                className='form-control border-dark'
+                                defaultValue={selectedUser.role}
+                                placeholder='admin/user'
+                                onChange={(e) => setRole(e.target.value)}
+                            />
+                            <div className="d-flex justify-content-between">
+                                <button type='button' className='btn btn-secondary m-1 text-black' onClick={() => setShowModal(false)}>Bezárás</button>
+
+                                <button type='button' className='btn btn-primary m-1 text-black' onClick={() => editUser(selectedUser.user_id)}>Módosít</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
         </div>
     )

@@ -135,7 +135,7 @@ export default function Game1() {
               {dealer && dealer.map((kartya, index) => (
                 <img
                   key={index}
-                  src={`http://127.0.0.1:4000/card_img/${kartya.card_img}`}
+                  src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.card_img}`}
                   className="kartya"
                   style={{ animationDelay: `${index * 0.2}s` }}
                 />
@@ -185,7 +185,7 @@ export default function Game1() {
 
                 <img
                   key={index}
-                  src={`http://127.0.0.1:4000/card_img/${kartya.card_img}`}
+                  src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.card_img}`}
                   alt={kartya.card_name}
                   className="kartya"
                 />
