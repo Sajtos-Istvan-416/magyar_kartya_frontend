@@ -704,6 +704,13 @@ body {
   text-shadow: 1px 1px 10px black;
 }
 
+.fejlesztes {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-weight: 800;
+  text-shadow: 1px 1px 10px black;
+}
+
 .label2 {
   background: var(--btn-main) !important;
   color: var(--text-color) !important;

@@ -39,6 +39,8 @@ import Scoreboard6 from './pages/scoreboards/Scoreboard6'
 
 // Játékok
 import Game1 from './pages/games/Game1'
+import Game2 from './pages/games/Game2'
+import GameB from './pages/games/Gameb'
 
 
 function App() {
@@ -77,6 +79,8 @@ function App() {
         <Route path='gamerule5' element={<Gamerule5 />} />
         <Route path='gamerule6' element={<Gamerule6 />} />
         <Route path='game1' element={<Game1 />} />
+        <Route path='game2' element={<Game2 />} />
+        <Route path='gameB' element={<GameB />} />
       </Routes>
     </BrowserRouter>
   );
