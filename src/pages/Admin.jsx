@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css' 
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState, useEffect } from "react";
 import { whoAmi } from '../api';
 import { Navigate } from "react-router-dom";
@@ -88,6 +88,9 @@ export default function Admin() {
     function handleEdit(user) {
         setSelectedUser(user)
         setShowModal(true)
+        setUsername(user.user_name)
+        setEmail(user.email)
+        setRole(user.role)
     }
 
     async function editUser(user_id, user_name, email, role) {
@@ -152,7 +155,14 @@ export default function Admin() {
                             <div className="d-flex justify-content-between">
                                 <button type='button' className='btn btn-secondary m-1 text-black' onClick={() => setShowModal(false)}>Bezárás</button>
 
-                                <button type='button' className='btn btn-primary m-1 text-black' onClick={() => editUser(selectedUser.user_id)}>Módosít</button>
+                                <button
+                                    type='button'
+                                    className='btn btn-primary m-1 text-black'
+                                    onClick={() =>
+                                        editUser(selectedUser.user_id, user_name, email, role)}
+                                >
+                                    Módosít
+                                </button>
                             </div>
                         </div>
                     </div>
