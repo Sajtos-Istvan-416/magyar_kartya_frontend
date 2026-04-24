@@ -31,9 +31,9 @@ export default function Menu() {
 
                         {/* OSZLOP */}
                         <a href="/start"><button className="btn2 menu-item" style={{ animationDelay: "0.1s" }}>Huszonegy</button></a>
-                        <a href="/start1"><button className="btn2 menu-item" style={{ animationDelay: "0.2s" }}>Makaó</button></a>
-                        <a href="/start2"><button className="btn2 menu-item" style={{ animationDelay: "0.3s" }}>Zsír</button></a>
-                        <a href="/start3"><button className="btn2 menu-item" style={{ animationDelay: "0.4s" }}>Fájer</button></a>
+                        <a href="/start3"><button className="btn2 menu-item" style={{ animationDelay: "0.2s" }}>Fájer</button></a>
+                        <a href="/start1"><button className="btn2 menu-item" style={{ animationDelay: "0.3s" }}>Makaó</button></a>
+                        <a href="/start2"><button className="btn2 menu-item" style={{ animationDelay: "0.4s" }}>Zsír</button></a>
                         <a href="/start4"><button className="btn2 menu-item" style={{ animationDelay: "0.5s" }}>Snapszter</button></a>
                         <a href="/start5"><button className="btn2 menu-item" style={{ animationDelay: "0.6s" }}>Lórum</button></a>
                         <div className='d-flex menu-item' style={{ animationDelay: "0.8s" }}>

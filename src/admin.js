@@ -17,7 +17,7 @@ export async function getAllUsers() {
 
 // egy felhasználó adatainak módosítása
 export async function userEdit(user_id, username, email, role) {
-    const res = await fetch(`${BACKEND_URL}api/admin/edit/${user_id}`, {
+    const res = await fetch(`${BACKEND_URL}users/admin/edit/${user_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'

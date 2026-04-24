@@ -87,23 +87,27 @@ export default function Admin() {
 
     function handleEdit(user) {
         setSelectedUser(user)
-        setShowModal(true)
         setUsername(user.user_name)
         setEmail(user.email)
         setRole(user.role)
+        setShowModal(true)
     }
 
-    async function editUser(user_id, user_name, email, role) {
+    async function editUser(user_id) {
         setErrorAllUsers('')
 
         const data = await userEdit(user_id, user_name, email, role)
 
         if (data.error) {
-            setErrorAllUsers(data.error)
-            return alert(errorAllUsers)
+            return alert(data.error)
         }
 
-        return alert('Sikeres módosítás')
+        alert('Sikeres módosítás')
+
+        const users = await getAllUsers()
+        setAllUsers(users)
+
+        setShowModal(false)
     }
 
     return (
@@ -123,7 +127,7 @@ export default function Admin() {
             {showModal && selectedUser && (
                 <div className='modal d-block' tabIndex='-1'>
                     <div className="modal-dialog">
-                        <div className="modal-content p-3">
+                        <div className="modal-content p-3 border-black" style={{background:'lightblue'}}>
                             <h5>Szerkesztés</h5>
 
                             <label className="form-label fw-bold">Username: </label>
@@ -145,24 +149,19 @@ export default function Admin() {
                             />
 
                             <label className="form-label fw-bold">Role: </label>
-                            <input
-                                type="text"
-                                className='form-control border-dark'
-                                defaultValue={selectedUser.role}
-                                placeholder='admin/user'
+                            <select
+                                className='form-control border-dark form-select'
+                                value={role}
                                 onChange={(e) => setRole(e.target.value)}
-                            />
-                            <div className="d-flex justify-content-between">
-                                <button type='button' className='btn btn-secondary m-1 text-black' onClick={() => setShowModal(false)}>Bezárás</button>
+                            >
+                                <option value="user">user</option>
+                                <option value="admin">admin</option>
+                            </select>
 
-                                <button
-                                    type='button'
-                                    className='btn btn-primary m-1 text-black'
-                                    onClick={() =>
-                                        editUser(selectedUser.user_id, user_name, email, role)}
-                                >
-                                    Módosít
-                                </button>
+                            <div className="d-flex justify-content-between">
+                                <button type='button' className='btn btn-secondary m-1 text-black border-black' onClick={() => setShowModal(false)}>Bezárás</button>
+
+                                <button type='button' className='btn btn-primary m-1 text-black border-black' onClick={() => editUser(selectedUser.user_id)}>Módosít</button>
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@ export default function Start3() {
                         <div className="d-flex flex-column mt-5">
 
                             {/* OSZLOP */}
-                            <button className="btn3">Mehet!</button>
+                            <a href="/game2"><button className="btn3">Mehet!</button></a>
                             <a href="/gamerule4"><button className="btn3">Játékszabály</button></a>
                             <label className="label2">Pontszám: 0 <img className="kep2" src="./kepek/kupa.png" alt="" /></label>
                             <a href="/menu"><button className="btn3">Főmenü</button></a>

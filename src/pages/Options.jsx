@@ -3,12 +3,22 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { logout, whoAmi } from '../api';
 import { Link } from "react-router-dom";
+import { userEdit } from "../admin"
 
 export default function Options() {
 
     const [uzenet, setUzenet] = useState('')
     const [hiba, setHiba] = useState('')
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState(null)
+
+    const [isEditing, setIsEditing] = useState(false)
+    const [errorAllUsers, setErrorAllUsers] = useState('')
+
+    const [selectedUser, setSelectedUser] = useState(null)
+
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [role, setRole] = useState('')
 
     const [tema, setTema] = useState(
         localStorage.getItem("tema") || "theme-pink"
@@ -22,20 +32,6 @@ export default function Options() {
         document.body.className = tema;
         localStorage.setItem("tema", tema);
     }, [tema]);
-
-    // USER LOAD
-    useEffect(() => {
-        async function loadUser() {
-            try {
-                const data = await whoAmi()
-                if (data.error) return setHiba(data.error)
-                setUser(data)
-            } catch {
-                setHiba("Nem sikerült lekérni a felhasználót")
-            }
-        }
-        loadUser()
-    }, [])
 
     async function onclick() {
         setUzenet('');
@@ -53,6 +49,52 @@ export default function Options() {
             setHiba('Nem sikerült kapcsolódni a backendhez.');
         }
     }
+
+    function handleEdit(user) {
+        setSelectedUser(user)
+        setUsername(user.username) // ✅ EZ KELL
+        setEmail(user.email)
+        setRole(user.role)
+        setIsEditing(true)
+    }
+
+    async function editUser(user_id) {
+        const data = await userEdit(user_id, username, email, role)
+
+        if (data.error) {
+            return alert(data.error)
+        }
+
+        // 🔥 EZ HIÁNYZIK
+        setUser(prev => ({
+            ...prev,
+            username,
+            email
+        }))
+
+        setIsEditing(false)
+
+        alert('Sikeres módosítás')
+    }
+
+    useEffect(() => {
+        async function loadUser() {
+            try {
+                const data = await whoAmi()
+                if (data.error) return setHiba(data.error)
+
+                setUser(data)
+                setUsername(data.username)
+                setEmail(data.email)
+                setRole(data.role)
+
+            } catch {
+                setHiba("Nem sikerült lekérni a felhasználót")
+            }
+        }
+        loadUser()
+    }, [])
+
 
     return (
         <div className="app">
@@ -77,10 +119,20 @@ export default function Options() {
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
                         <h2 style={{ maxWidth: 40 }} className='szoveg'>Név:</h2>
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
-                            <span style={{ maxWidth: "85%", padding: 10 }}>
-                                {user?.username}
-                            </span>
+                            {isEditing ? (
+                                <input
+                                    className="form-control"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                            ) : (
+                                <span>{user?.username}</span>
+                            )}
                             <img
+                                onClick={() => {
+                                    console.log("CLICK");
+                                    handleEdit(user);
+                                }}
                                 src="/kepek/szerkesztes.svg"
                                 alt=""
                                 style={{ width: 25, height: 25 }}
@@ -91,10 +143,20 @@ export default function Options() {
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
                         <h2 style={{ maxWidth: 40 }} className='szoveg'>Email:</h2>
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
-                            <span style={{ maxWidth: "85%", padding: 10 }}>
-                                {user?.email}
-                            </span>
+                            {isEditing ? (
+                                <input
+                                    className="form-control"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            ) : (
+                                <span>{user?.email}</span>
+                            )}
                             <img
+                                onClick={() => {
+                                    console.log("CLICK");
+                                    handleEdit(user);
+                                }}
                                 src="/kepek/szerkesztes.svg"
                                 alt=""
                                 style={{ width: 25, height: 25, }}
@@ -111,7 +173,10 @@ export default function Options() {
                     Kijelentkezés
                 </button>
 
-                <button className="btn1">
+                <button
+                    className="btn1"
+                    onClick={() => selectedUser && editUser(selectedUser.user_id)}
+                >
                     Mentés!
                 </button>
 
@@ -146,7 +211,7 @@ export default function Options() {
 
             <div className='d-flex justify-content-center align-itmes-cneter'>
 
-            {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}</div>
+                {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}</div>
 
             <img src="/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
 
