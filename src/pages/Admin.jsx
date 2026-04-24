@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css' 
 import { useState, useEffect } from "react";
-import { logout, whoAmi } from '../api';
+import { whoAmi } from '../api';
 import { Navigate } from "react-router-dom";
 import { getAllUsers, userEdit, deleteUser } from "../admin"
 import Table from '../components/Table';
@@ -90,7 +90,7 @@ export default function Admin() {
         setShowModal(true)
     }
 
-    async function editUser(user_id) {
+    async function editUser(user_id, user_name, email, role) {
         setErrorAllUsers('')
 
         const data = await userEdit(user_id, user_name, email, role)
