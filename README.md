@@ -1,4 +1,10 @@
 ## 🎮 Magyar Kártya Frontend
+
+# Készítette:
+- Sajtos István
+  
+---
+
 ### 🗒️ Tartalomjegyzék
 - [Bevezetés](#bevezetés)
 - [A projektről](#aprojektről)
@@ -22,6 +28,7 @@ amely lehetővé teszi klasszikus magyar kártyajátékok játszását böngész
 -🎮 játékok megjelenítése
 -🧠 logika kezelése
 -🔗 backenddel való kommunikáció
+
 ---
 
 ### 📖 A projektről
