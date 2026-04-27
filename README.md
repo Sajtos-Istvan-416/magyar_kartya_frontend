@@ -25,9 +25,11 @@ amely lehetővé teszi klasszikus magyar kártyajátékok játszását böngész
 
 #### A frontend feladata:
 
--🎮 játékok megjelenítése
--🧠 logika kezelése
--🔗 backenddel való kommunikáció
+- 🎮 játékok megjelenítése
+
+- 🧠 logika kezelése
+
+- 🔗 backenddel való kommunikáció
 
 ---
 
@@ -37,25 +39,35 @@ A Magyar Kártya frontend célja egy modern, látványos és könnyen használha
 
 #### A rendszer:
 
-több játékot tartalmaz
-minden játék külön komponensben van
-bot ellen játszható
-folyamatos játékélményt biztosít
+- több játékot tartalmaz
+
+- minden játék külön komponensben van
+
+- bot ellen játszható
+
+- folyamatos játékélményt biztosít
 
 ---
 
 ### ⚙️ Technológiák
-⚛️ React (Vite)
-🟨 JavaScript (ES6)
-🎨 CSS
-📦 Bootstrap
-🔗 Fetch API
+
+- ⚛️ React (Vite) 
+
+- 🟨 JavaScript (ES6)
+
+- 🎨 CSS
+
+- 📦 Bootstrap
+
+- 🔗 Fetch API
 
 ---
 
 ## 📁 Projekt szerkezet
+
 src/
 ├── pages/
+│   ├── gamerules/
 │   ├── games/
 │   │   ├── Game1.jsx
 │   │   ├── Game2.jsx
@@ -80,26 +92,27 @@ src/
 ### 🧩 Oldalak és működés
 
 #### 🎮 Menu
-játék kiválasztása
-navigáció külön játékokra
-téma betöltése
+
+- játék kiválasztása
+- navigáció külön játékokra
+- téma betöltése
 
 ---
 
 #### ⚙️ Options
-témaválasztás
-localStorage használata
+- témaválasztás
+- localStorage használata
 
 --- 
 
 #### 👤 Login / Register
-felhasználó kezelés
-autentikáció
+- felhasználó kezelés
+- autentikáció
 
 ---
 
 #### 🏆 Scoreboard
-pontszámok megjelenítése
+- pontszámok megjelenítése
 
 ---
 
@@ -107,13 +120,13 @@ pontszámok megjelenítése
 
 A játékok React state alapú működésűek.
 
-🔹 Használt state-ek:
-kartyaim → játékos lapjai
-dealer → osztó lapjai
-pontszam → játékos pont
-dealerPontszam → osztó pont
-hiba → hibaüzenet
-uzenet → eredmény
+### 🔹 Használt state-ek:
+- kartyaim → játékos lapjai
+- dealer → osztó lapjai
+- pontszam → játékos pont
+- dealerPontszam → osztó pont
+- hiba → hibaüzenet
+- uzenet → eredmény
 
 ---
 
@@ -147,17 +160,17 @@ UI frissül
 ### 🎨 Felhasználói felület
 
 #### Fő elemek:
-🃏 dinamikus kártyák
-🎴 pakli (kattintható)
-🌸 sarok díszek
-💬 üzenetek
+- 🃏 dinamikus kártyák
+- 🎴 pakli (kattintható)
+- 🌸 sarok díszek
+- 💬 üzenetek
 
 ---
 
 #### Extra funkciók:
-🎨 témaváltás (localStorage)
-⚡ animációk (animationDelay)
-🔄 pontszám animáció
+- 🎨 témaváltás (localStorage)
+- ⚡ animációk (animationDelay)
+- 🔄 pontszám animáció
 
 ---
 
@@ -178,20 +191,20 @@ https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.card_img}
 ---
 
 ## 🚀 Fejlesztési lehetőségek
-🎮 Multiplayer mód
-✨ Animációk fejlesztése
-📱 Mobil optimalizálás
-🧠 State management (Redux)
-🃏 Több játék
+- 🎮 Multiplayer mód
+- ✨ Animációk fejlesztése
+- 📱 Mobil optimalizálás
+- 🧠 State management (Redux)
+- 🃏 Több játék
 
 ---
 
 ## 📌 Összefoglalás
-⚛️ React alapú frontend
-🎮 több játék kezelése
-🔗 API alapú működés
-🎨 testreszabható UI
-🔗 GitHub
+- ⚛️ React alapú frontend
+- 🎮 több játék kezelése
+- 🔗 API alapú működés
+- 🎨 testreszabható UI
+- 🔗 GitHub
 
 ---
 
