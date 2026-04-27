@@ -1,15 +1,15 @@
 ## 🎮 Magyar Kártya Frontend
 ### 🗒️ Tartalomjegyzék
-Bevezetés
-A projektről
-Technológiák
-Projekt szerkezet
-Oldalak és működés
-Játék működés
-Felhasználói felület
-API kommunikáció
-Fejlesztési lehetőségek
-
+- [Bevezetés](#bevezetés)
+- [A projektről](#aprojektről)
+- [Technológiák](#technologiak)
+- [Projekt szerkezet](#projectszerkezet)
+- [Oldalak és működés](#oldalakesmukodes)
+- [Játék működés](#jatekmukodes)
+- [Felhasználói felület](#felhasznaloifelulet)
+- [API kommunikáció](apikommunikacio)
+- [Fejlesztési lehetőségek](#fejlesztesilehetosegek)
+  
 ---
 
 ### 🏪 Bevezetés
