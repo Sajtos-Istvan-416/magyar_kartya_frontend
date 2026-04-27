@@ -195,4 +195,10 @@ https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.card_img}
 
 ---
 
-👉 Frontend repository
+## 👉 Frontend repository
+https://github.com/Sajtos-Istvan-416/magyar_kartya_frontend/tree/main
+
+---
+
+# Oldal
+https://magyarkartya.netlify.app/
