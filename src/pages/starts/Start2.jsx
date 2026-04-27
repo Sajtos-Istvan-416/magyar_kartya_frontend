@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Start2() {
 
@@ -7,6 +8,7 @@ export default function Start2() {
     useEffect(() => {
         document.body.className = tema;
     }, []);
+
     return (
 
         <div className="app">
@@ -24,15 +26,21 @@ export default function Start2() {
                     
                     <h1 className="cim">Zsír</h1>
                     
-                    <div className=" d-flex justify-content-center" >
+                    <div className="d-flex justify-content-center">
 
-                        <div className="d-flex flex-column mt-5">
+                        <div className="d-flex flex-column mt-5 align-items-center">
 
-                            {/* OSZLOP */}
-                            <a href="/gameB"><button className="btn3">Mehet!</button></a>
-                            <a href="/gamerule3"><button className="btn3">Játékszabály</button></a>
-                            <label className="label2">Pontszám: 0 <img className="kep2" src="./kepek/kupa.png" alt="" /></label>
-                            <a href="/menu"><button className="btn3">Főmenü</button></a>
+                            {/* 2. LÉPÉS: Az <a><button> elemek cseréje <Link>-re */}
+                            <Link to="/gameB" className="btn3 menu-item">Mehet!</Link>
+                            <Link to="/gamerule3" className="btn3 menu-item">Játékszabály</Link>
+                            
+                            {/* A label már a javított CSS-t használja, így ez is reszponzív lesz */}
+                            <label className="label2">
+                                Pontszám: 0 
+                                <img className="kep2" src="./kepek/kupa.png" alt="Pontszám kupa" />
+                            </label>
+
+                            <Link to="/menu" className="btn3 menu-item">Főmenü</Link>
                         </div>
                     </div>
 

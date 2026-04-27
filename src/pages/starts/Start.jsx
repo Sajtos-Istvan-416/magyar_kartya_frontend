@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Start() {
 
@@ -25,15 +26,18 @@ export default function Start() {
 
                     <h1 className="cim">Huszonegy</h1>
 
-                    <div className=" d-flex justify-content-center" >
-
+                    <div className="d-flex justify-content-center">
                         <div className="d-flex flex-column mt-5">
 
-                            {/* OSZLOP */}
-                            <a href="/game1"><button className="btn3">Mehet!</button></a>
-                            <a href="/gamerule1"><button className="btn3">Játékszabály</button></a>
-                            <label className="label2">Pontszám: 0 <img className="kep2" src="./kepek/kupa.png" alt="" /></label>
-                            <a href="/menu"><button className="btn3">Főmenü</button></a>
+                            {/* OSZLOP - mindegyik gombnak van menu-item class */}
+                            <Link to="/game1" className="btn3 menu-item">Mehet!</Link>
+                            <Link to="/gamerule1" className="btn3 menu-item">Játékszabály!</Link>
+                            <label className="label2">
+                                Pontszám: 0 
+                                <img className="kep2" src="./kepek/kupa.png" alt="Pontszám" />
+                            </label>
+                            <Link to="/menu" className="btn3 menu-item">Főmenü</Link>
+
                         </div>
                     </div>
 

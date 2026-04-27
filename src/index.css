@@ -213,55 +213,43 @@ body {
   }
 }
 
-/* MOBIL */
-@media (max-width: 600px) {
-  .form label {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .form input,
-  .form select {
-    width: 100%;
-  }
-
-  .games-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .game {
-    width: 100%;
-  }
-
-  .sarok {
-    width: 110px;
-    opacity: 0.6;
-  }
-}
-
 .kep2 {
-  margin-left: 180px;
+  margin-left: 20px; /* Ezt megtartjuk */
+  margin-right: 20px; /* Ezt megtartjuk */
   width: 50px;
   height: 50px;
+  /* Hozzáadva: a kép legyen szépen középen */
+  display: block;
 }
 
 .label2 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* <<< MÓDOSÍTÁS */
   align-items: center;
-  margin: 30px;
+  
+  width: 100%;                  /* <<< HOZZÁADVA */
+  max-width: 550px;             /* <<< HOZZÁADVA */
+  margin: 30px 0;               /* <<< MÓDOSÍTÁS */
+  padding: 10px 20px;           /* <<< MÓDOSÍTÁS a jobb kinézethez */
+  
   font-size: 30px;
   color: black;
   font-weight: bold;
   background: var(--btn-main);
   border-radius: 90px;
-  padding: 10px;
 }
 
 .btn2 {
+  /* Új sorok a tökéletes kinézethez */
+  display: flex;             /* Kezelje block elemként, ami rugalmas */
+  align-items: center;       /* Függőlegesen középre igazítja a szöveget */
+  justify-content: center;   /* Vízszintesen középre igazítja a szöveget */
+  text-decoration: none;     /* Eltávolítja a link aláhúzását */
+
+  /* A te meglévő stílusaid */
   height: 60px;
-  width: 550px;
+  width: 100%;
+  max-width: 550px;
   margin: 20px;
   padding: 12px 32px;
   border-radius: 30px;
@@ -271,12 +259,23 @@ body {
   font-weight: bold;
   font-size: 25px;
   cursor: pointer;
+
+  /* Az animációkhoz, ahogy a JSX-ben használod */
+  animation: lebeg 3s ease-in-out infinite, beuszas 0.6s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .btn3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  
   height: 60px;
-  width: 550px;
-  margin: 35px;
+  width: 100%;             /* <<< MÓDOSÍTÁS: Foglalja el a 100% helyet */
+  max-width: 550px;        /* <<< MÓDOSÍTÁS: De legfeljebb 550px legyen */
+  margin: 20px 0;          /* <<< MÓDOSÍTÁS: Vertikálisan 20px, horizontálisan 0 */
   padding: 12px 32px;
   border-radius: 30px;
   border: none;
@@ -288,13 +287,20 @@ body {
 }
 
 .btn4 {
+  /* Új sorok */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+
+  /* A te meglévő stílusaid */
   height: 60px;
   width: 225px;
   margin: 35px;
   padding: 12px 32px;
   border-radius: 30px;
   border: none;
-  background: var(--btn-main);
+  background: var(--btn-secondary); /* Figyelem: ez a szabályod felülírta, de lehet ez a jó */
   color: white;
   font-weight: bold;
   font-size: 25px;
@@ -387,10 +393,6 @@ body {
 
   .gombok {
     grid-template-columns: 1fr;
-  }
-
-  .btn2 {
-    width: 100%;
   }
 
   .scoreboard {
@@ -877,6 +879,177 @@ button:active {
   transform: scale(0.95);
 }
 
-.toltes{
+.toltes {
   background: var(--bg-color) !important;
+}
+
+
+/* ========================= */
+/* MOBIL FIXEK (EZ OLDJA MEG) */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+  /* ne takarják ki a gombokat */
+  .sarok {
+    width: 90px;
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  /* legyen hely */
+  .container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  /* wrapper */
+  .menu-wrapper {
+    width: 100%;
+    align-items: center;
+  }
+
+  /* fő gombok */
+  .btn2 {
+    width: 300px;
+    font-size: 18px;
+  }
+
+  /* alsó gombok (egymás alá!) */
+  .menu-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn4 {
+    width: 300px;
+    max-width: 350px;
+  }
+
+  /* animáció ne tolja szét */
+  .menu-item {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ======================================= */
+/* OPTIONS OLDAL RESZPONZIVITÁS (ÚJ RÉSZ) */
+/* ======================================= */
+
+@media (max-width: 768px) {
+
+    /* A felső és alsó háttérképek magasságát csökkentjük mobilon,
+       hogy több hely maradjon a tartalomnak. */
+    .kep, .kep1 {
+        height: 150px;
+    }
+
+    /* A profilkép és a szöveges rész egymás alá kerül a Bootstrap
+       (flex-md-row) miatt, de a belső elemeket is rendezni kell. */
+
+    /* A Név/Email címke ne jobbra, hanem lefelé tolja a tartalmat. */
+    .szoveg {
+        margin-right: 0;
+        margin-bottom: 10px;
+        text-align: center; /* Középre igazítjuk a szöveget */
+    }
+
+    /* A profiladatokat megjelenítő doboz ne legyen fix 500px széles,
+       hanem alkalmazkodjon a képernyőhöz. */
+    .megjelenites {
+        width: 100%;
+        max-width: 350px; /* De ne legyen túl széles mobilon sem */
+        font-size: 18px; /* Kisebb betűméret */
+    }
+
+    /* A szerkesztés ikon méretét megtartjuk, de igazítunk a pozícióján. */
+    .megjelenites img {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* A Kijelentkezés és Mentés gombok már reszponzívak a Bootstrap
+       (flex-md-row) miatt, azokkal nincs teendő. */
+
+    /* A téma választó gombok legyenek kisebbek és a margójuk is. */
+    .tema1,
+    .tema2,
+    .tema3,
+    .tema4 {
+        width: 80px;
+        height: 70px;
+        margin: 15px; /* Kisebb margó, hogy jobban elférjenek */
+    }
+
+    /* A "Vissza" gombot középre helyezzük, hogy ne tolódjon el. */
+    .vissza-gomb-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px; /* Távolság a többi elemtől */
+    }
+}
+
+/* ======================================= */
+/* GAME1 (JÁTÉK) OLDAL RESZPONZIVITÁS      */
+/* ======================================= */
+
+@media (max-width: 768px) {
+
+    /* A játékteret (pakli + kártyák) egymás alá rendezzük,
+       és csökkentjük a távolságot köztük. */
+    .jatek-ter {
+        flex-direction: column; /* Vertikális elrendezés */
+        gap: 40px; /* Kisebb távolság az elemek között */
+        margin-top: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* A kártyák méretét csökkentjük, hogy több elférjen egy sorban,
+       vagy ne legyenek túl nagyok mobilon. */
+    .kartyak-ter .kartya {
+        width: 100px;
+    }
+
+    /* A pakli méretét is csökkentjük, hogy arányos maradjon. */
+    .pakli-container {
+        width: 120px;
+        height: 215px; /* Arányosan csökkentve */
+    }
+    .pakli-container img {
+        width: 145px; /* Arányosan csökkentve */
+    }
+
+    /* A legfontosabb: az alsó gombok és pontszám szekció.
+       Egymás alá rendezzük őket. */
+    .jatek-actions {
+        flex-direction: column;
+        align-items: center; /* Középre igazítjuk a most már egymás alatti elemeket */
+        gap: 30px; /* Távolság a pontszám doboz és a gomb között */
+        margin: 20px 0 !important; /* Kevesebb vertikális margó */
+    }
+
+    /* A "Játék indítása" gomb fix 500px szélességét felülírjuk,
+       hogy ne lógjon ki a képernyőről. */
+    .btn5 {
+        width: 100%; /* Kitölti a rendelkezésre álló helyet */
+        max-width: 350px; /* De maximum csak ekkora legyen */
+        margin: 0; /* Eltávolítjuk a felesleges margókat */
+        font-size: 22px; /* Kisebb betűméret */
+    }
+
+    /* A pontszám doboz már jó méretű, de a benne lévő gomb
+       stílusát is érdemes lehet finomítani. */
+    .pontszam {
+        margin: 0;
+        width: 100%;
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 }
