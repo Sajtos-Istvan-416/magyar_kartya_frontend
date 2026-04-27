@@ -65,6 +65,7 @@ A Magyar Kártya frontend célja egy modern, látványos és könnyen használha
 
 ## 📁 Projekt szerkezet
 
+```bash
 src/
 ├── pages/
 │   ├── gamerules/
@@ -86,6 +87,7 @@ src/
 ├── game.js
 ├── main.jsx
 ├── index.css
+```
 
 ---
 
