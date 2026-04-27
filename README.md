@@ -14,13 +14,14 @@ Fejlesztési lehetőségek
 
 ### 🏪 Bevezetés
 
-A projekt egy React alapú webalkalmazás, amely lehetővé teszi klasszikus magyar kártyajátékok játszását böngészőben.
+A projekt egy React alapú webalkalmazás,
+amely lehetővé teszi klasszikus magyar kártyajátékok játszását böngészőben.
 
 #### A frontend feladata:
 
-🎮 játékok megjelenítése
-🧠 logika kezelése
-🔗 backenddel való kommunikáció
+-🎮 játékok megjelenítése
+-🧠 logika kezelése
+-🔗 backenddel való kommunikáció
 ---
 
 ### 📖 A projektről
