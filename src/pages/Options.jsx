@@ -7,27 +7,24 @@ import { userEdit } from "../admin"
 
 export default function Options() {
 
+    // ... A meglévő state-ek és függvények (useState, useEffect, stb.) maradnak ...
+    // ... Nincs változás a return előtt ...
+
     const [uzenet, setUzenet] = useState('')
     const [hiba, setHiba] = useState('')
     const [user, setUser] = useState(null)
-
     const [isEditing, setIsEditing] = useState(false)
     const [errorAllUsers, setErrorAllUsers] = useState('')
-
     const [selectedUser, setSelectedUser] = useState(null)
-
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [role, setRole] = useState('')
-
     const [tema, setTema] = useState(
         localStorage.getItem("tema") || "theme-pink"
     );
     const isAdmin = user?.role === 'admin'
-
     const navigate = useNavigate();
 
-    // THEME APPLY
     useEffect(() => {
         document.body.className = tema;
         localStorage.setItem("tema", tema);
@@ -36,15 +33,11 @@ export default function Options() {
     async function onclick() {
         setUzenet('');
         setHiba('');
-
         try {
             const data = await logout();
-
             if (data.error) return setHiba(data.error);
-
             setUzenet(data.message);
             setTimeout(() => navigate('/login'), 2000)
-
         } catch {
             setHiba('Nem sikerült kapcsolódni a backendhez.');
         }
@@ -52,7 +45,7 @@ export default function Options() {
 
     function handleEdit(user) {
         setSelectedUser(user)
-        setUsername(user.username) // ✅ EZ KELL
+        setUsername(user.username)
         setEmail(user.email)
         setRole(user.role)
         setIsEditing(true)
@@ -60,20 +53,12 @@ export default function Options() {
 
     async function editUser(user_id) {
         const data = await userEdit(user_id, username, email, role)
-
         if (data.error) {
             return alert(data.error)
         }
-
-        // 🔥 EZ HIÁNYZIK
-        setUser(prev => ({
-            ...prev,
-            username,
-            email
-        }))
-
+        const freshUser = await whoAmi()
+        setUser(freshUser)
         setIsEditing(false)
-
         alert('Sikeres módosítás')
     }
 
@@ -82,19 +67,16 @@ export default function Options() {
             try {
                 const data = await whoAmi()
                 if (data.error) return setHiba(data.error)
-
                 setUser(data)
                 setUsername(data.username)
                 setEmail(data.email)
                 setRole(data.role)
-
             } catch {
                 setHiba("Nem sikerült lekérni a felhasználót")
             }
         }
         loadUser()
     }, [])
-
 
     return (
         <div className="app">
@@ -104,7 +86,14 @@ export default function Options() {
             {hiba && <div className="hiba_uzi">{hiba}</div>}
             {uzenet && <div className="jo_uzi">{uzenet}</div>}
 
-            <a href="/menu"><button className="btn1" style={{ marginLeft: 50 }}>Vissza</button></a>
+            {/* <<< EZ A RÉSZ VÁLTOZOTT >>> */}
+            <div className="vissza-gomb-wrapper">
+                <a href="/menu">
+                    {/* Az inline style innen el lett távolítva! */}
+                    <button className="btn1">Vissza</button>
+                </a>
+            </div>
+            {/* <<< EDDIG TART A VÁLTOZÁS >>> */}
 
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center col-lg-12">
 
@@ -117,7 +106,9 @@ export default function Options() {
                 <div>
 
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
-                        <h2 style={{ maxWidth: 40 }} className='szoveg'>Név:</h2>
+                        {/* A 'szoveg' osztályra már hatni fog a reszponzív CSS */}
+                        <h2 className='szoveg'>Név:</h2>
+                        {/* A 'megjelenites' osztályra már hatni fog a reszponzív CSS */}
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
                             {isEditing ? (
                                 <input
@@ -141,7 +132,7 @@ export default function Options() {
                     </div>
 
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
-                        <h2 style={{ maxWidth: 40 }} className='szoveg'>Email:</h2>
+                        <h2 className='szoveg'>Email:</h2>
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
                             {isEditing ? (
                                 <input
@@ -167,7 +158,7 @@ export default function Options() {
                 </div >
             </div>
 
-            <div className='d-flex flex-column flex-md-row justify-content-center align-items-center gap-3'>
+            <div className='d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mt-4'>
 
                 <button className="btn1" onClick={onclick}>
                     Kijelentkezés
@@ -182,10 +173,10 @@ export default function Options() {
 
             </div>
 
-            {/* TÉMÁK */}
-            <div className="d-flex flex-wrap justify-content-center align-items-center text-center gap-2">
+            {/* TÉMÁK - A 'tema' osztályokra már hatni fog a reszponzív CSS */}
+            <div className="d-flex flex-wrap justify-content-center align-items-center text-center gap-2 mt-4">
 
-                <h1 className="cim">Témák:</h1>
+                <h1 className="cim w-100">Témák:</h1>
 
                 <button
                     className={`tema1 ${tema === "theme-pink" ? "active" : ""}`}
@@ -210,11 +201,10 @@ export default function Options() {
             </div>
 
             <div className='d-flex justify-content-center align-itmes-cneter'>
-
-                {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}</div>
+                {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration m-4 rounded cim  fs-4'>Admin panel</Link>}
+            </div>
 
             <img src="/kepek/magyar_kartya-e1640775461287.jpg" className="kep1" alt="" />
-
         </div>
     )
 }

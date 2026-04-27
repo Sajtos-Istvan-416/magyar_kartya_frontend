@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Start3() {
 
@@ -7,6 +8,7 @@ export default function Start3() {
     useEffect(() => {
         document.body.className = tema;
     }, []);
+
     return (
 
         <div className="app">
@@ -24,15 +26,21 @@ export default function Start3() {
 
                     <h1 className="cim">Fájer</h1>
 
-                    <div className=" d-flex justify-content-center" >
+                    <div className="d-flex justify-content-center">
 
-                        <div className="d-flex flex-column mt-5">
+                        {/* A Bootstrap class-t kiegészítettem egy align-items-center-rel a szebb középre igazításért */}
+                        <div className="d-flex flex-column mt-5 align-items-center">
 
-                            {/* OSZLOP */}
-                            <a href="/game2"><button className="btn3">Mehet!</button></a>
-                            <a href="/gamerule4"><button className="btn3">Játékszabály</button></a>
-                            <label className="label2">Pontszám: 0 <img className="kep2" src="./kepek/kupa.png" alt="" /></label>
-                            <a href="/menu"><button className="btn3">Főmenü</button></a>
+                            {/* 2. Régi gombok cseréje Link komponensekre */}
+                            <Link to="/game2" className="btn3 menu-item">Mehet!</Link>
+                            <Link to="/gamerule4" className="btn3 menu-item">Játékszabály</Link>
+                            
+                            <label className="label2">
+                                Pontszám: 0 
+                                <img className="kep2" src="./kepek/kupa.png" alt="Pontszám kupa" />
+                            </label>
+
+                            <Link to="/menu" className="btn3 menu-item">Főmenü</Link>
                         </div>
                     </div>
 
