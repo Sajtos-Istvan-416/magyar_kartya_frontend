@@ -23,6 +23,10 @@ export default defineConfig({
       '/api/admin': {
         target: 'https://nodejs303.dszcbaross.edu.hu',
         changeOrigin: true
+      },
+      '/api': {
+        target: 'https://nodejs303.dszcbaross.edu.hu',
+        changeOrigin: true
       }
     }
   }

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Scorealap() {
 
@@ -33,16 +34,16 @@ export default function Scorealap() {
                             <a href="/menu"><button className="btn1">Vissza</button></a>
                         </div>
                         <div className='d-flex'>
-                            <a href="/scoreboard1"><button className="btn4">Huszonegy</button></a>
-                            <a href="/scoreboard2"><button className="btn4">Makaó</button></a>
+                        <Link to="/scoreboard1" className="btn4 menu-item" style={{ animationDelay: "0.1s" }}> Huszonegy</Link>
+                        <Link to="/scoreboard4" className="btn4 menu-item" style={{ animationDelay: "0.2s" }} >Fájer</Link>
                         </div>
-                        <div>
-                            <a href="/scoreboard3"><button className="btn4">Zsír</button></a>
-                            <a href="/scoreboard4"><button className="btn4">Fájer</button></a>
+                        <div className='d-flex'>
+                        <Link to="/scoreboard2" className="btn4 menu-item" style={{ animationDelay: "0.3s" }}>Makaó</Link>
+                        <Link to="/scoreboard3" className="btn4 menu-item" style={{ animationDelay: "0.4s" }}>Zsír</Link>
                         </div>
-                        <div>
-                            <a href="/scoreboard5"><button className="btn4">Snapszter</button></a>
-                            <a href="/scoreboard6"><button className="btn4">Lórum</button></a>
+                        <div className='d-flex'>
+                        <Link to="/scoreboard5" className="btn4 menu-item" style={{ animationDelay: "0.5s" }}>Snapszter</Link>
+                        <Link to="/scoreboard6" className="btn4 menu-item" style={{ animationDelay: "0.6s" }}>Lórum</Link>
                         </div>
 
                     </div>

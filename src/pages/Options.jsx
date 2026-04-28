@@ -86,14 +86,11 @@ export default function Options() {
             {hiba && <div className="hiba_uzi">{hiba}</div>}
             {uzenet && <div className="jo_uzi">{uzenet}</div>}
 
-            {/* <<< EZ A RÉSZ VÁLTOZOTT >>> */}
             <div className="vissza-gomb-wrapper">
                 <a href="/menu">
-                    {/* Az inline style innen el lett távolítva! */}
                     <button className="btn1">Vissza</button>
                 </a>
             </div>
-            {/* <<< EDDIG TART A VÁLTOZÁS >>> */}
 
             <div className="d-flex flex-column flex-md-row align-items-center justify-content-center col-lg-12">
 
@@ -106,9 +103,7 @@ export default function Options() {
                 <div>
 
                     <div className='d-flex flex-column flex-md-row align-items-center justify-content-center'>
-                        {/* A 'szoveg' osztályra már hatni fog a reszponzív CSS */}
                         <h2 className='szoveg'>Név:</h2>
-                        {/* A 'megjelenites' osztályra már hatni fog a reszponzív CSS */}
                         <div className='megjelenites d-flex justify-content-between align-items-start'>
                             {isEditing ? (
                                 <input
@@ -173,7 +168,6 @@ export default function Options() {
 
             </div>
 
-            {/* TÉMÁK - A 'tema' osztályokra már hatni fog a reszponzív CSS */}
             <div className="d-flex flex-wrap justify-content-center align-items-center text-center gap-2 mt-4">
 
                 <h1 className="cim w-100">Témák:</h1>
