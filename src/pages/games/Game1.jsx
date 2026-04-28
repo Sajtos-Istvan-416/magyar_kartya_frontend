@@ -135,7 +135,7 @@ export default function Game1() {
               </div>
             </div>
 
-            <div className="kartyak-ter">
+            <div className="kartyak-ter mt-5">
               {kartyaim?.map((kartya, index) => (
                 <img
                   key={index}
@@ -148,7 +148,7 @@ export default function Game1() {
           </div>
 
           {/* <<< 2. MÓDOSÍTÁS: Új 'jatek-actions' osztály hozzáadva >>> */}
-          <div className="col-12 m-5 d-flex justify-content-between align-items-center jatek-actions">
+          <div className="col-12 d-flex justify-content-between align-items-center jatek-actions">
 
             <div className={`pontszam ${animPont ? "frissult" : ""}`}>
               <div>Osztó: {dealerPontszam}</div>
