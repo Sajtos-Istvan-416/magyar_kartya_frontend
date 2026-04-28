@@ -106,7 +106,7 @@ export default function Game2() {
                     {botHand.map((kartya, index) => (
                        <img
                        key={index}
-                       src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.png`}
+                       src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.jpg`}
                        className="kartya"
                         />
                     ))}
@@ -118,7 +118,7 @@ export default function Game2() {
                     {table.map((kartya, index) => (
                         <img
                         key={index}
-                        src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.png`}
+                        src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.jpg`}
                         className="kartya"
                             // ASZTAL
                             onClick={() => swapWithTable(index)}
@@ -134,7 +134,7 @@ export default function Game2() {
                     {hand.map((kartya, index) => (
                        <img
                        key={index}
-                       src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.png`}
+                       src={`https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.id}.jpg`}
                        className="kartya"
                             onClick={() => selectHandCard(index)}
                             style={{

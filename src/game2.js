@@ -14,11 +14,12 @@ export async function fajerstart() {
     return data
 }
 
-export async function playerswap(hanIndex,tableIndex) {
+export async function playerswap(handIndex,tableIndex) {
+    console.log(handIndex,tableIndex);
     const res = await fetch(`${BACKEND_URL}/fajer/player-swap`, {
         method: 'POST',
         credentials: 'include',
-        body: JSON.stringify({ hanIndex, tableIndex })
+        body: JSON.stringify({ handIndex, tableIndex })
     })
   
 
