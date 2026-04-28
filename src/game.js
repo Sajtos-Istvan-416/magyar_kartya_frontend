@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:4000/api/game'
+const BACKEND_URL = '/api/game'
 
 export async function startGame() {
     const res = await fetch(`${BACKEND_URL}/start`, {
