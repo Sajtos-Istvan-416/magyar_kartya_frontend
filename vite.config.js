@@ -10,7 +10,7 @@ export default defineConfig({
       },
     }),
   ],
-  server:{
+  server: {
     proxy: {
       '/users': {
         target: 'https://nodejs303.dszcbaross.edu.hu',
@@ -27,7 +27,11 @@ export default defineConfig({
       '/api': {
         target: 'https://nodejs303.dszcbaross.edu.hu',
         changeOrigin: true
-      }
+      },
+      '/card_img': {
+        target: 'https://nodejs303.dszcbaross.edu.hu',
+        changeOrigin: true
+      },
     }
   }
 })
