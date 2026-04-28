@@ -4,15 +4,15 @@
 # Készítette:
 **Sajtos István**
 
-- {Bevezetés}(#bevezetes)
-- {A projektről}(#aprojektrol)
-- {Technológiák}(#technologia)
-- {Projekt szerkezet}(#projektszerkezete)
-- {Oldalak és működés}(#oldalakesmukodes)
-- {Játék működés}(jatekmukodes)
-- {Felhasználói felület}(felhasznaloifelulet)
-- {API kommunikáció}(apikommunikacio)
-- {Fejlesztési lehetőségek}(fejlesztesilehetosegek)
+- [Bevezetés](#bevezetes)
+- [A projektről](#aprojektrol)
+- [Technológiák](#technologia)
+- [Projekt szerkezet](#projektszerkezete)
+- [Oldalak és működés](#oldalakesmukodes)
+- [Játék működés](#jatekmukodes)
+- [Felhasználói felület](#felhasznaloifelulet)
+- [API kommunikáció](#apikommunikacio)
+- [Fejlesztési lehetőségek](#fejlesztesilehetosegek)
 
 ---
 
