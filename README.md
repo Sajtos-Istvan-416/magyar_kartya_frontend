@@ -56,14 +56,37 @@ A Magyar Kártya frontend célja egy modern, látványos és könnyen használha
 
 ```bash
 src/
+├── components/
+│   ├── Input.jsx/
+│   └── Table.jsx
 ├── pages/
+│   ├── gamerules/
+│   │   ├── Gamerule1.jsx
+│   │   ├── Gamerule2.jsx
+│   │   ├── Gamerule3.jsx
+│   │   ├── Gamerule4.jsx
+│   │   ├── Gamerule5.jsx
+│   │   └── Gamerule6.jsx
 │   ├── games/
 │   │   ├── Game1.jsx
 │   │   ├── Game2.jsx
 │   │   └── Gameb.jsx
 │   │
 │   ├── scoreboards/
+│   │   ├── Scorealap.jsx
+│   │   ├── Scoreboard1.jsx
+│   │   ├── Scoreboard2.jsx
+│   │   ├── Scoreboard3.jsx
+│   │   ├── Scoreboard4.jsx
+│   │   ├── Scoreboard5.jsx
+│   │   └── Scoreboard6.jsx
 │   ├── starts/
+│   │   ├── Start.jsx
+│   │   ├── Start1.jsx
+│   │   ├── Start2.jsx
+│   │   ├── Start3.jsx
+│   │   ├── Start4.jsx
+│   │   └── Start5.jsx
 │   ├── Admin.jsx
 │   ├── Home.jsx
 │   ├── Login.jsx
@@ -71,10 +94,12 @@ src/
 │   ├── Options.jsx
 │   └── Register.jsx
 │
+├── admin.js
 ├── api.js
 ├── game.js
-├── main.jsx
+├── game2.js
 ├── index.css
+└── main.jsx
 ```
 
 ---
@@ -194,6 +219,11 @@ https://nodejs303.dszcbaross.edu.hu/card_img/${kartya.card_img}
 
 # 👉 Frontend repository
 - https://github.com/Sajtos-Istvan-416/magyar_kartya_frontend
+
+---
+
+# 👉 Backend repository
+- https://github.com/magulyaaa/MAGYAR_KARTYA_BACKEND
 
 ---
 
