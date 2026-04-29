@@ -38,7 +38,7 @@ export default function GameB() {
                             <h3 style={{margin:30}}>
                                 Kérjük, nézz vissza később!
                             </h3>
-                            <a href="/menu"><button className="btn1">Vissza a főmenübe</button></a>
+                            <a href="/menu"><button className="btn1">Vissza a főmenüre!</button></a>
                         </div>
 
                 </div>
