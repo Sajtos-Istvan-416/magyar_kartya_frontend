@@ -14,21 +14,20 @@ export async function fajerstart() {
     return data
 }
 
-export async function playerswap(handIndex,tableIndex) {
-    console.log(handIndex,tableIndex);
+export async function playerswap(handIndex, tableIndex) {
+    console.log(handIndex, tableIndex);
+
     const res = await fetch(`${BACKEND_URL}/fajer/player-swap`, {
         method: 'POST',
         credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({ handIndex, tableIndex })
-    })
-  
+    });
 
-    const data = await res.json()
-
-    if (data.error) {
-        return data
-    }
-    return data
+    const data = await res.json();
+    return data;
 }
 
 export async function botswap() {

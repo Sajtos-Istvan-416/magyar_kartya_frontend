@@ -95,7 +95,7 @@ src/
 - autentikáció
 
 #### 🏆 Scoreboard
-- pontszámok megjelenítése, de egyfajta ranglistaként is szolgál
+- pontszámok megjelenítése, de egyfajta ranglistaként is szolgál (még fejleszéss alatt)
 
 ---
 
@@ -116,14 +116,20 @@ A játékok React state alapú működésűek.
 #### ▶️ Játék indítása
 
 - startGame()
+- fajerstart()
 
 #### 🃏 Kártya húzás
 
 - hit()
 
+#### 🃏 Kártya csere
+
+- playerswap()
+
 #### ✋ Megállás
 
 - stand()
+- result()
 
 ### 🔄 Működés folyamata
 
